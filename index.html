@@ -9,11 +9,88 @@ nav{position:sticky;top:0;z-index:40;height:64px;padding:0 6%;display:flex;align
 .activity{background:linear-gradient(140deg,#0d0e20,#17112a)}.ag{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center}.routine div{padding:18px;border-left:2px solid var(--v);background:#ffffff05;margin:8px 0}.routine small{font:800 7px monospace;color:var(--v)}.routine strong{display:block;margin-top:5px;font-size:13px}.routine p{font-size:10px;color:#8e91a9}.planet{aspect-ratio:1;max-width:390px;border:1px solid #a98bff40;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 40px #a98bff08,0 0 0 80px #82c8ff04}.planet b{text-align:center;font-size:45px;font-weight:300}.planet strong{font-weight:900}.planet small{display:block;font:800 7px monospace;color:var(--v);margin-top:14px}
 .final{background:#f1eff7;color:#11121d;text-align:center}.final h2{font-size:clamp(48px,8vw,92px);letter-spacing:-.07em;margin:0}.final h2 span{color:#8068df}.final p{max-width:680px;margin:24px auto;color:#716e80;font-size:12px;line-height:2}.dm{display:inline-block;padding:14px 22px;background:#11121d;color:#fff;font:900 9px monospace}footer{text-align:center;padding:28px;color:#676b83;font:800 8px monospace}.reveal{opacity:0;transform:translateY(25px);transition:.8s}.reveal.on{opacity:1;transform:none}
 @media(max-width:780px){.stats{grid-template-columns:1fr 1fr}.checks,.dg,.ag{grid-template-columns:1fr}.moon{opacity:.22;width:65vw;right:-15%}.reason{grid-template-columns:55px 1fr}.reason span{display:none}}@media(max-width:480px){.stats,.banlist{grid-template-columns:1fr}.entry{flex-direction:column}.hero h2{font-size:58px}}
-</style></head><body class="lock"><div id="intro"><div class="orbit"><i></i></div><div class="ib"><small>TALESRUNNER · ADULT HALF-SOCIAL GUILD</small><h1>윤<b>하</b></h1><p>달 아래 모인 새로운 인연.<br>함께 웃고, 떠들고, 오래 성장할 사람을 기다립니다.</p><div class="entry"><button id="enter">ENTER ORBIT · 입장하기</button><button id="quiet">SILENT ORBIT</button></div></div></div>
+
+/* CELESTIAL / SUPERNATURAL UPGRADE */
+#starfield{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.9}
+.aurora{position:absolute;width:75vw;height:28vw;border-radius:50%;filter:blur(70px);opacity:.16;mix-blend-mode:screen;pointer-events:none}
+.a1{left:-15vw;top:5vh;background:linear-gradient(90deg,#7a63ff,#5bc7ff);animation:floatA 10s ease-in-out infinite alternate}
+.a2{right:-20vw;bottom:2vh;background:linear-gradient(90deg,#ef9cdb,#7766ff);animation:floatB 13s ease-in-out infinite alternate}
+@keyframes floatA{to{transform:translate(12vw,8vh) rotate(8deg)}}@keyframes floatB{to{transform:translate(-10vw,-7vh) rotate(-9deg)}}
+.introMoon{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);width:min(52vw,540px);aspect-ratio:1;z-index:1;transition:1.2s cubic-bezier(.2,.8,.2,1)}
+.moonCore{position:absolute;inset:15%;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff,#e9e5ff 48%,#aaa0df 78%,#6d639d);box-shadow:0 0 55px #d8d0ff70,0 0 140px #9078ff55}
+.moonCore:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 65% 34%,#6b609f22 0 7%,transparent 8%),radial-gradient(circle at 35% 67%,#6b609f20 0 10%,transparent 11%),radial-gradient(circle at 54% 54%,#6b609f18 0 5%,transparent 6%)}
+.moonGlow{position:absolute;inset:0;border-radius:50%;background:#a98bff30;filter:blur(32px);animation:moonPulse 3.5s ease-in-out infinite}
+@keyframes moonPulse{50%{transform:scale(1.13);opacity:.55}}
+.orbitA{width:min(76vw,760px);z-index:1}.orbitB{width:min(58vw,580px);z-index:1;animation-direction:reverse;animation-duration:12s;transform:rotate(35deg)}
+.orbitB i{background:#f4a9df;box-shadow:0 0 28px #f4a9df}
+.meteor{position:absolute;width:140px;height:1px;background:linear-gradient(90deg,#fff,transparent);opacity:0;transform:rotate(-28deg);z-index:1}
+.m1{left:72%;top:18%;animation:shoot 5.8s 1s infinite}.m2{left:18%;top:32%;animation:shoot 7.2s 3.5s infinite}.m3{left:62%;top:72%;animation:shoot 8.5s 5s infinite}
+@keyframes shoot{0%,82%{opacity:0;transform:translate(0,0) rotate(-28deg)}84%{opacity:1}100%{opacity:0;transform:translate(-420px,230px) rotate(-28deg)}}
+#intro.beat .introMoon{transform:translate(-50%,-50%) scale(1.16)}
+#intro.beat .moonCore{box-shadow:0 0 80px #fff,0 0 210px #a98bff,0 0 330px #82c8ff70}
+#intro.beat .ib h1{text-shadow:0 0 22px #fff5,0 0 70px #a98bff88}
+#intro.burst:after{content:"";position:absolute;inset:0;background:radial-gradient(circle,#ffffffd9 0,#bcaeff66 16%,transparent 48%);animation:burst .8s forwards;z-index:4;pointer-events:none}
+@keyframes burst{0%{opacity:0;transform:scale(.3)}35%{opacity:.85}100%{opacity:0;transform:scale(2.1)}}
+.ib{z-index:5}.ib h1{transition:.5s;filter:drop-shadow(0 15px 35px #000b)}
+.music{position:fixed;right:16px;bottom:16px;z-index:70;width:min(420px,calc(100% - 32px));display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding:12px;background:#08091be8;border:1px solid #a98bff42;backdrop-filter:blur(20px);box-shadow:0 20px 70px #000c,0 0 45px #8d74ff18}
+.music button{width:48px;height:48px;border:1px solid #c6baff55;background:linear-gradient(145deg,#8068df,#5e78df);color:#fff;font-weight:900;cursor:pointer}
+.music small{display:block;font:800 7px monospace;letter-spacing:.13em;color:#b9adff}.music strong{font-size:11px}.music .bar{height:2px;background:#ffffff16;margin-top:8px}.music .bar i{display:block;width:0;height:100%;background:linear-gradient(90deg,#a98bff,#82c8ff,#f4a9df)}
+.vol{display:flex;align-items:center;gap:5px}.vol input{width:70px;accent-color:#a98bff}.vol span{font:800 7px monospace;color:#8e92ad}
+.cosmicDivider{height:1px;width:min(920px,78%);margin:auto;background:linear-gradient(90deg,transparent,#a98bff70,#82c8ff70,transparent)}
+body.musicOn .moon{animation:heroMoon 4s ease-in-out infinite}@keyframes heroMoon{50%{box-shadow:0 0 100px #bbaeff4d,0 0 210px #7966e344;transform:scale(1.025)}}
+body.musicOn .planet{animation:planetBeat 4s ease-in-out infinite}@keyframes planetBeat{50%{box-shadow:0 0 0 48px #a98bff0b,0 0 0 98px #82c8ff06,0 0 80px #a98bff22}}
+@media(max-width:520px){.music{right:8px;bottom:8px;width:calc(100% - 16px);grid-template-columns:44px 1fr}.music .vol{grid-column:2}.vol input{width:100%}.introMoon{width:86vw}.orbitA{width:110vw}.orbitB{width:84vw}}
+</style></head><body class="lock"><div id="intro">
+    <canvas id="starfield"></canvas>
+    <div class="aurora a1"></div><div class="aurora a2"></div>
+    <div class="introMoon"><div class="moonGlow"></div><div class="moonCore"></div></div>
+    <div class="orbit orbitA"><i></i></div><div class="orbit orbitB"><i></i></div>
+    <div class="meteor m1"></div><div class="meteor m2"></div><div class="meteor m3"></div>
+    <div class="ib"><small>TALESRUNNER · ADULT HALF-SOCIAL GUILD</small><h1>윤<b>하</b></h1><p>달 아래 모인 새로운 인연.<br>함께 웃고, 떠들고, 오래 성장할 사람을 기다립니다.</p><div class="entry"><button id="enter">SUPERNATURAL · 음악과 함께 입장</button><button id="quiet">SILENT ORBIT · 조용히 입장</button></div></div></div>
 <nav><b>윤<i>하</i> / YUNHA</b><span>RECRUITING · ALWAYS OPEN</span></nav><header class="hero"><div class="moon"></div><div class="wrap hc"><div class="badge">● NEW ORBIT MEMBERS WANTED</div><h2>달 아래,<br><b>우리의 궤도</b><span>함께 웃고 성장하는 곳.</span></h2><p class="lead"><b>윤하</b>는 성인 반친목 길드입니다. 너무 무겁지도, 너무 가볍지도 않게. 같이 게임하고 이야기하며 서로 으쌰으쌰할 <b>새로운 인연</b>을 기다립니다.</p><div class="chips"><i>07년생 이상</i><i>HOLY WING+</i><i>DISCORD REQUIRED</i><i>3 DAYS RULE</i></div></div></header><div class="ticker">YUNHA /// ADULT HALF-SOCIAL /// HOLY WING+ /// DISCORD REQUIRED /// ACTIVE TOGETHER /// NEW CONNECTION ///</div>
 <section><div class="wrap reveal"><div class="kick">01 / YUNHA SIGNAL</div><div class="title">반친목의 적당한 거리,<span>함께할 땐 확실하게.</span></div><div class="stats"><div class="stat"><small>AGE</small><strong>07년생 이상</strong><p>2026년 기준 성인 길드입니다.</p></div><div class="stat"><small>LEVEL</small><strong>홀리윙 이상</strong><p>부계 방지 기준. 갤럭시 윙 부츠는 렙업 의사가 있다면 가입 가능합니다.</p></div><div class="stat"><small>DISCORD</small><strong>필수 참여</strong><p>공지 확인용 필수. 마이크 사용은 자유입니다.</p></div><div class="stat"><small>ACTIVITY</small><strong>3일 기준</strong><p>이유 없는 3일 미접속 시 추방. 장기 미접은 사전 연락해주세요.</p></div></div></div></section>
 <section class="light"><div class="wrap reveal"><div class="kick">02 / ORBIT ENTRY CHECK</div><div class="title">가입 전,<span>궤도 진입 조건.</span></div><div class="checks"><div class="check"><b>01</b><div><strong>2026년 기준 성인 · 07년생 이상</strong><p>성인 반친목 길드의 기본 연령 조건.</p></div></div><div class="check"><b>02</b><div><strong>홀리윙 이상</strong><p>갤럭시 윙 부츠는 렙업 의사가 있다면 가입 가능.</p></div></div><div class="check"><b>03</b><div><strong>디스코드 필수</strong><p>공지 확인용 필수, 마이크는 자유.</p></div></div><div class="check"><b>04</b><div><strong>용병 가입 후 1일 이내 길드 가입</strong><p>1일 이내 정식 가입해주세요.</p></div></div><div class="check"><b>05</b><div><strong>3일 미접속 관리</strong><p>장기 미접 예정이면 운영진에게 사전 연락 필수.</p></div></div><div class="check"><b>06</b><div><strong>적극적인 길드 활동</strong><p>서로 으쌰으쌰하며 같이 성장할 분을 환영합니다.</p></div></div></div></div></section>
 <section class="deny"><div class="wrap dg reveal"><div class="redmoon"><b>NO<br>ENTRY</b></div><div><div class="kick" style="color:#f4a9df">03 / ACCESS DENIED</div><div class="title">이 경우에는<span>가입할 수 없습니다.</span></div><div class="banlist"><div class="ban">부계정</div><div class="ban">이중길드</div><div class="ban">서바인</div><div class="ban">팜인</div><div class="ban">노고인</div><div class="ban">특정 커뮤니티 및 사이트 활동 유저</div></div></div></div></section>
 <section><div class="wrap reveal"><div class="kick">04 / EJECTION PROTOCOL</div><div class="title">함께하기 어려운<span>행동의 기준.</span></div><div class="reason"><b>OUT 01</b><strong>사기, 선 넘는 행동 등 다른 사람에게 불쾌감을 주는 행위</strong><span>NO HARM</span></div><div class="reason"><b>OUT 02</b><strong>여미새·남미새 등 물 흐리기 및 기타 비매너 행위</strong><span>KEEP VIBE</span></div><div class="reason"><b>OUT 03</b><strong>용병 가입 후 1일 이내 가입하지 않는 경우</strong><span>24H RULE</span></div><div class="reason"><b>OUT 04</b><strong>그 외 운영진 판단에 따라 추방될 수 있음</strong><span>STAFF</span></div></div></section>
 <section class="activity"><div class="wrap ag reveal"><div><div class="kick">05 / DAILY ORBIT</div><div class="title">자유롭게,<span>하지만 함께.</span></div><div class="routine"><div><small>EXTERNAL</small><strong>외부 일 미관여</strong><p>길드 외부에서 발생한 일은 길드에서 관여하지 않습니다.</p></div><div><small>SKILL</small><strong>길드 스킬 · 이벤트별 유동 운영</strong><p>이벤트 상황에 맞춰 변경됩니다.</p></div><div><small>AIRSHIP</small><strong>비공정 · 현재 미정</strong><p>참여율이 높을 경우 운영진 상의 후 결정합니다.</p></div><div><small>QUEST</small><strong>길드 퀘스트 · 자유 참여</strong><p>매일 1인 퀘스트 지정을 놓습니다.</p></div></div></div><div class="planet"><b>같이<br><strong>성장</strong><small>SAME ORBIT</small></b></div></div></section>
-<section class="final"><div class="wrap reveal"><div class="kick">06 / NEW CONNECTION</div><h2>윤하의 다음 <span>인연</span>을<br>기다립니다.</h2><p>길드 활동에 적극적으로 참여하고 같이 웃고 떠들며 서로 으쌰으쌰 성장하고 싶은 분이라면 환영합니다.<br><b>가입 문의는 DM으로 부탁드립니다.</b></p><span class="dm">💌 RECRUITMENT · DM 문의</span></div></section><footer>YUNHA · TALESRUNNER ADULT HALF-SOCIAL GUILD · SAME ORBIT / NEW CONNECTION</footer><script>const i=document.getElementById("intro");function go(){document.body.classList.remove("lock");i.classList.add("out");setTimeout(()=>i.remove(),1000)}enter.onclick=go;quiet.onclick=go;addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&document.body.classList.contains("lock"))go()});const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("on")),{threshold:.08});document.querySelectorAll(".reveal").forEach(x=>o.observe(x));</script></body></html>
+<section class="final"><div class="wrap reveal"><div class="kick">06 / NEW CONNECTION</div><h2>윤하의 다음 <span>인연</span>을<br>기다립니다.</h2><p>길드 활동에 적극적으로 참여하고 같이 웃고 떠들며 서로 으쌰으쌰 성장하고 싶은 분이라면 환영합니다.<br><b>가입 문의는 DM으로 부탁드립니다.</b></p><span class="dm">💌 RECRUITMENT · DM 문의</span></div></section><div class="cosmicDivider"></div>
+<div class="music">
+<button id="play">▶</button>
+<div><small>YUNHA · LUNAR SIGNAL / NOW PLAYING</small><strong>NewJeans — Supernatural</strong><div class="bar"><i id="prog"></i></div></div>
+<div class="vol"><span id="vt">7%</span><input id="volume" type="range" min="0" max="100" value="7"></div>
+</div>
+<audio id="bgm" preload="auto" loop><source src="assets/supernatural.mp3" type="audio/mpeg"></audio><footer>YUNHA · TALESRUNNER ADULT HALF-SOCIAL GUILD · SAME ORBIT / NEW CONNECTION</footer><script>
+const intro=document.getElementById("intro"),bgm=document.getElementById("bgm"),play=document.getElementById("play"),
+volume=document.getElementById("volume"),vt=document.getElementById("vt"),prog=document.getElementById("prog");
+let target=.07,fade;
+
+/* lightweight starfield */
+const c=document.getElementById("starfield"),ctx=c.getContext("2d");let stars=[];
+function resizeStars(){const d=Math.min(devicePixelRatio||1,1.5);c.width=innerWidth*d;c.height=innerHeight*d;c.style.width=innerWidth+"px";c.style.height=innerHeight+"px";ctx.setTransform(d,0,0,d,0,0);stars=Array.from({length:Math.min(150,Math.floor(innerWidth/8))},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.4+.2,a:Math.random()*.7+.15,s:Math.random()*.012+.003}))}
+function drawStars(t){ctx.clearRect(0,0,innerWidth,innerHeight);stars.forEach((s,k)=>{let a=s.a+Math.sin(t*s.s+k)*.22;ctx.globalAlpha=Math.max(.08,a);ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle="#fff";ctx.fill()});ctx.globalAlpha=1;requestAnimationFrame(drawStars)}
+addEventListener("resize",resizeStars);resizeStars();requestAnimationFrame(drawStars);
+
+function openGate(){
+  intro.classList.add("beat");
+  setTimeout(()=>intro.classList.add("burst"),300);
+  setTimeout(()=>{document.body.classList.remove("lock");intro.classList.add("out")},760);
+  setTimeout(()=>intro.remove(),1900);
+}
+function musicEntry(){
+  bgm.volume=0;
+  bgm.play().then(()=>{
+    document.body.classList.add("musicOn");play.textContent="Ⅱ";
+    clearInterval(fade);fade=setInterval(()=>{bgm.volume=Math.min(target,bgm.volume+.0025);if(bgm.volume>=target)clearInterval(fade)},55)
+  }).catch(()=>{});
+  openGate();
+}
+function quietEntry(){bgm.pause();openGate()}
+document.getElementById("enter").onclick=musicEntry;
+document.getElementById("quiet").onclick=quietEntry;
+play.onclick=()=>{if(bgm.paused){bgm.play();document.body.classList.add("musicOn");play.textContent="Ⅱ"}else{bgm.pause();document.body.classList.remove("musicOn");play.textContent="▶"}};
+volume.oninput=()=>{target=+volume.value/100;bgm.volume=target;vt.textContent=volume.value+"%"};
+bgm.ontimeupdate=()=>prog.style.width=(bgm.duration?bgm.currentTime/bgm.duration*100:0)+"%";
+addEventListener("keydown",e=>{if((e.key==="Enter"||e.key===" ")&&document.body.classList.contains("lock"))musicEntry()});
+const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("on")),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(x=>o.observe(x));
+</script></body></html>
